@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const cors = require("cors"); // Import the cors module
+const PORT = process.env.PORT || 3000; // You can choose any available port
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -13,7 +14,6 @@ const app = express();
 
 dotenv.config();
 
-const port = 3001; // You can choose any available port
 app.use(cors());
 app.use(express.json());
 
@@ -27,6 +27,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+
 
 app.post("/signup", async (req, res) => {
   try {
@@ -137,6 +138,6 @@ app.post("/generate-content", async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
