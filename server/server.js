@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const cors = require("cors"); // Import the cors module
-const PORT = process.env.PORT || 3000; // You can choose any available port
+const PORT = process.env.PORT; // You can choose any available port
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
