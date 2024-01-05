@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // mongodb
-mongoose.connect("mongodb://localhost:27017/organicDB");
+mongoose.connect(process.env.MONGODB_CONNECT_URL);
 
 const userSchema = new mongoose.Schema({
   name: String,
